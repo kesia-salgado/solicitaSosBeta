@@ -29,10 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = document.getElementById('password').value;
             const user = JSON.parse(localStorage.getItem('user'));
             if (user && user.email === email && user.password === password) {
+                console.log('Login bem-sucedido!', user);
+                localStorage.setItem('loggedInUser', JSON.stringify(user)); // Renomeei a chave para evitar conflitos
                 window.location.href = 'dashboard.html';
             } else {
                 document.getElementById('loginMessage').textContent = 'Credenciais inválidas!';
             }
+            
         });
     }
 
