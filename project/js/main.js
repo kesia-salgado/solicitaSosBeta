@@ -76,4 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
+// Verifica se o usuário está logado ao carregar a página e redireciona para o dashboard
+document.addEventListener('DOMContentLoaded', function() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        window.location.href = 'dashboard.html';
+    }
+});
